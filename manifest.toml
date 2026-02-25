@@ -89,8 +89,8 @@ arbitrary-limitations.fr = "La version officielle d'OnlyOffice limite le nombre 
     autoupdate.strategy = "latest_github_release"
     
     [resources.sources.src]
-    url = "https://github.com/ONLYOFFICE/server/archive/refs/tags/v9.1.0.183.tar.gz"
-    sha256 = "aa7f75b96b8dc34831e3df190a686a08eda66ae59be59696735ab9a80d7cac0d"
+    url = "https://github.com/ONLYOFFICE/server/archive/refs/tags/v9.2.1.1.tar.gz"
+    sha256 = "6f545f3c17c0fb4d7f6b3a6112d8526a47e590051efc710ebd85cbc665471413"
     # Autoupdater disabled because keeps failing everyday, because no tag found after sanity filtering
     # autoupdate.strategy = "latest_github_tag"
     # autoupdate.version_regex = "^v9.*$"
