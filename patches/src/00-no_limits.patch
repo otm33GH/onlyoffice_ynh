@@ -77,7 +77,7 @@ diff --git a/DocService/sources/server.js b/DocService/sources/server.js
 index 150dca50..3b40b35e 100644
 --- a/DocService/sources/server.js
 +++ b/DocService/sources/server.js
-@@ -128,8 +128,6 @@ if (!(cfgTokenEnableBrowser && cfgTokenEnableRequestInbox && cfgTokenEnableReque
+@@ -142,8 +142,6 @@ if (!(cfgTokenEnableBrowser && cfgTokenEnableRequestInbox && cfgTokenEnableReque
  }
  
  updateLicense();
@@ -113,6 +113,7 @@ index e8e1308f..23f7e2ef 100644
  
  build-date: $(GRUNT_FILES)
  	sed "s|\(const buildVersion = \).*|\1'${PRODUCT_VERSION}';|" -i $(COMMON_DEFINES_JS)
+
 
 
 
