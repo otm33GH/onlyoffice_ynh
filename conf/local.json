@@ -84,5 +84,7 @@
   },
   "FileConverter": {
     "converter": {
-      "signingKeyStorePath": "/var/www/onlyoffice/documentserver/../Data/signing-keystore.p12"  
+      "signingKeyStorePath": "/var/www/onlyoffice/documentserver/../Data/signing-keystore.p12"
+    }
+  }   
 }
