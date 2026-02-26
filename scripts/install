@@ -60,6 +60,11 @@ openssl req -x509 -newkey rsa:2048 \
 -days 3650 \
 -nodes \
 -subj "/C=/ST=/L=/O=/OU=/CN=onlyoffice"
+openssl pkcs12 -export \
+-out onlyoffice.pfx \
+-inkey onlyoffice.key \
+-in onlyoffice.crt \
+-password pass:
 mv onlyoffice.pfx /var/www/onlyoffice__2/documentserver/server/FileConverter/
 popd 
 
