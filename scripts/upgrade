@@ -85,6 +85,17 @@ ynh_config_add --template="local.json" --destination="$conf_dir/local.json"
 chmod 400 "$conf_dir/local.json"
 chown "$app:$app" "$conf_dir/local.json"
 
+pushd "$install_dir"
+openssl req -x509 -newkey rsa:2048 \
+-keyout onlyoffice.key \
+-out onlyoffice.crt \
+-password pass:
+-days 3650 \
+-nodes \
+-subj "//"
+mv onlyoffice.pfx /var/www/onlyoffice__2/documentserver/server/FileConverter/
+popd 
+
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
 #=================================================
