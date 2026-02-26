@@ -57,7 +57,6 @@ pushd "$install_dir"
 openssl req -x509 -newkey rsa:2048 \
 -keyout onlyoffice.key \
 -out onlyoffice.crt \
--password pass:
 -days 3650 \
 -nodes \
 -subj "//"
