@@ -2,7 +2,7 @@
   "services": {
     "CoAuthoring": {
       "server": {
-            "port": __PORT__,        
+            "port": __PORT__,
             "documentFormatsFile": "__INSTALL_DIR__/documentserver/document-formats/onlyoffice-docs-formats.json",
           
       },
