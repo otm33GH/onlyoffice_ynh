@@ -2,7 +2,9 @@
   "services": {
     "CoAuthoring": {
       "server": {
-            "port": __PORT__
+            "port": __PORT__,        
+            "documentFormatsFile": "__INSTALL_DIR__/documentserver/document-formats/onlyoffice-docs-formats.json",
+          
       },
       "sql": {
         "type": "postgres",
@@ -80,5 +82,8 @@
   },
   "rabbitmq": {
     "url": "amqp://__RABBITMQ_USER__:__RABBITMQ_PWD__@localhost/__RABBITMQ_VHOST__"
-  }
+  },
+  "FileConverter": {
+    "converter": {
+      "signingKeyStorePath": "/var/www/onlyoffice/documentserver/../Data/signing-keystore.p12"  
 }
