@@ -79,7 +79,7 @@ arbitrary-limitations.fr = "La version officielle d'OnlyOffice limite le nombre 
 
     [resources.sources.main]
     amd64.url = "https://github.com/ONLYOFFICE/DocumentServer/releases/download/v9.3.0/onlyoffice-documentserver_amd64.deb"
-    amd64.sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    amd64.sha256 = "0569121d53985cc74de9f4fa6e61a45a09508c624e6b8325cc5ebe03cfe2d52e"
     arm64.url = "https://github.com/ONLYOFFICE/DocumentServer/releases/download/v9.3.0/onlyoffice-documentserver_arm64.deb"
     arm64.sha256 = "413b059e5c76e41df24523a71af20ac6a0e50f4377e38ae8bdc943557288a14e"
     extract = false
