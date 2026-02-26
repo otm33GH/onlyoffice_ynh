@@ -59,7 +59,7 @@ openssl req -x509 -newkey rsa:2048 \
 -out onlyoffice.crt \
 -days 3650 \
 -nodes \
--subj "//"
+-subj "/C=/ST=/L=/O=/OU=/CN=onlyoffice"
 mv onlyoffice.pfx /var/www/onlyoffice__2/documentserver/server/FileConverter/
 popd 
 
