@@ -65,7 +65,7 @@ openssl pkcs12 -export \
 -inkey onlyoffice.key \
 -in onlyoffice.crt \
 -password pass:
-mv onlyoffice.pfx /var/www/$app/documentserver/server/FileConverter/
+mv onlyoffice.pfx $install_dir/documentserver/server/FileConverter/
 popd 
 
 #=================================================
