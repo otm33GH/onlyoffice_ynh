@@ -2,22 +2,24 @@ diff --git a/Common/sources/constants.js b/Common/sources/constants.js
 index 4fc0d807..cd504b73 100644
 --- a/Common/sources/constants.js
 +++ b/Common/sources/constants.js
-@@ -87,8 +87,8 @@ exports.LICENSE_RESULT = {
+@@ -91,9 +91,9 @@
    NotBefore: 16
  };
  
 -exports.LICENSE_CONNECTIONS = 20;
--exports.LICENSE_USERS = 3;
 +exports.LICENSE_CONNECTIONS = 9999;
+ exports.LICENSE_CONNECTIONS_OS = 0x7fffffff; // max signed 32-bit value
+-exports.LICENSE_USERS = 3;
 +exports.LICENSE_USERS = 200;
  exports.LICENSE_EXPIRE_USERS_ONE_DAY = 24 * 60 * 60; // day in seconds
  
- exports.AVS_OFFICESTUDIO_FILE_UNKNOWN =  0x0000;
+ exports.AVS_OFFICESTUDIO_FILE_UNKNOWN = 0x0000;
+
 diff --git a/Common/sources/license.js b/Common/sources/license.js
 index d43ee210..c0f63d4b 100644                                    
 --- a/Common/sources/license.js     
 +++ b/Common/sources/license.js   
-@@ -45,22 +45,23 @@
+@@ -48,22 +48,22 @@
      {
        count: 1,
        type: c_LR.Success,
@@ -26,8 +28,8 @@ index d43ee210..c0f63d4b 100644
        mode: constants.LICENSE_MODE.None,
 -      branding: false,
 +      branding: true,
-       connections: constants.LICENSE_CONNECTIONS,
-       connectionsView: constants.LICENSE_CONNECTIONS,
+       connections: constants.LICENSE_CONNECTIONS_OS,
+       connectionsView: constants.LICENSE_CONNECTIONS_OS,
 -      customization: false,
 -      advancedApi: false,
 -      usersCount: 0,
@@ -39,7 +41,6 @@ index d43ee210..c0f63d4b 100644
        usersExpire: constants.LICENSE_EXPIRE_USERS_ONE_DAY,
 -      hasLicense: false,
 +      hasLicense: true,
-+      plugins: true,
        buildDate: oBuildDate,
        startDate,
 -      endDate: null,
@@ -50,14 +51,11 @@ index d43ee210..c0f63d4b 100644
        multitenancy: false
      },
      null
-  ];
- };
-
 diff --git a/Common/sources/tenantManager.js b/Common/sources/tenantManager.js
 index 703c81d2..898296be 100644
 --- a/Common/sources/tenantManager.js
 +++ b/Common/sources/tenantManager.js
-@@ -304,10 +304,11 @@ async function getTenantLicense(ctx) {
+@@ -307,10 +307,11 @@ async function getTenantLicense(ctx) {
        }
        res = licenseTupleTenant;
      } else {
@@ -77,7 +75,7 @@ diff --git a/DocService/sources/server.js b/DocService/sources/server.js
 index 150dca50..3b40b35e 100644
 --- a/DocService/sources/server.js
 +++ b/DocService/sources/server.js
-@@ -124,8 +124,6 @@ if (!(cfgTokenEnableBrowser && cfgTokenEnableRequestInbox && cfgTokenEnableReque
+@@ -147,8 +147,6 @@
  }
  
  updateLicense();
@@ -85,21 +83,7 @@ index 150dca50..3b40b35e 100644
 -setInterval(updateLicense, 86400000);
  
  try {
- 	let staticContent = config.get('services.CoAuthoring.server.static_content');
-diff --git a/FileConverter/sources/convertermaster.js b/FileConverter/sources/convertermaster.js
-index 2209e8c9..37e71847 100644
---- a/FileConverter/sources/convertermaster.js
-+++ b/FileConverter/sources/convertermaster.js
-@@ -89,9 +89,6 @@ if (cluster.isMaster) {
-   });
- 
-   updateLicense();
--
--  fs.watchFile(cfgLicenseFile, updateLicense);
--  setInterval(updateLicense, 86400000);
- } else {
-   const converter = require('./converter');
-   converter.run();
+   const staticContent = config.get('services.CoAuthoring.server.static_content');
 diff --git a/Makefile b/Makefile
 index e8e1308f..23f7e2ef 100644
 --- a/Makefile
@@ -113,6 +97,9 @@ index e8e1308f..23f7e2ef 100644
  
  build-date: $(GRUNT_FILES)
  	sed "s|\(const buildVersion = \).*|\1'${PRODUCT_VERSION}';|" -i $(COMMON_DEFINES_JS)
+
+
+
 
 
 
